@@ -1,0 +1,127 @@
+/* Base Variables */
+:root {
+    /* Colors */
+    --primary-color: #010314;
+    --secondary-color: #010314;
+    --background-color: #010314;
+    --background-darker: #000108;
+    --text-primary: #ffffff;
+    --text-secondary: #bababa;
+    --accent-color: #44A08D;
+    --accent-color-hover: #24947e;
+    --accent-color-active: #1d8d76;
+    --accent-color-rgb: 68, 160, 141;
+    --accent-hover: #3a8a78;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --positive-color: #44A08D;
+    --negative-color: #e74c3c;
+    --dollar-color: #44A08D;
+    --nav-bg: #0F101E;
+    --contrast-bg: #0f101e;
+    --input-bg: #0E1020;
+
+    /* Status Colors */
+    --success: #10B981;
+    --error: #EF4444;
+    --warning: #F59E0B;
+    --info: #3B82F6;
+
+    /* Spacing */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    --space-4xl: 96px;
+    
+    /* Typography */
+    --font-size-sm: 0.8rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+    --font-size-4xl: 2.5rem;
+    --font-family: 'Inter', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+
+    /* Borders & Shadows */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 20px;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+    
+    /* Layout */
+    --nav-height: 70px;
+    
+    /* Z-index layers */
+    --z-dropdown: 100;
+    --z-modal: 1000;
+    --z-tooltip: 1500;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.4s ease;
+    
+    /* Button Styles */
+    --button-height: 40px;
+    --button-height-sm: 32px;
+    --button-height-lg: 48px;
+    
+    /* Gradients */
+    --rainbow-gradient: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #7a00ff,
+        #ff00c8,
+        #ff0000
+    );
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Global Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    transition: background var(--transition-base);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Echelon</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/node_modules/flag-icons/css/flag-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/lightweight-charts@4.1.1/dist/lightweight-charts.standalone.production.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+        <!-- Load auth first -->
+    <script src="/js/theme.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="/js/auth.js"></script>
+        <!-- Then load modules that depend on auth -->
+    <script type="module" src="/js/nav.js" defer></script>
+    <script type="module" src="/js/tiers.js" defer></script>
+    <script type="module" src="/js/progress.js" defer></script>
+    <script type="module" src="./js/main.js" defer></script>
+    <script type="module" src="./js/chat.js" defer></script>
+    <script type="module" src="./js/leaderboard.js" defer></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="hamburger-menu mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-left">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+        <div class="nav-center">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Echelon</span>
+            </a>
+        </div>
+        <div class="nav-right">
+            <!-- Navigation buttons will be inserted here by nav.js -->
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <div class="left-column">
+            <div class="doge-pool-section">
+                <h2>Pooled DOGE</h2>
+                <div class="progress-wrapper">
+                    <div class="progress-label">Progress</div>
+                    <div class="progress-row">
+                        <div class="progress-container">
+                            <div class="progress" style="width: 0%"></div>
+                        </div>
+                        <div class="progress-text">0%</div>
+                    </div>
+                </div>
+                <div class="pool-info">
+                    <div class="collected-info">
+                        <span>Collected</span>
+                        <span id="collected-amount">0</span>
+                    </div>
+                    <div class="target-info">
+                        <span id="target-label">Target - Tier 1</span>
+                        <span id="target-amount">0</span>
+                    </div>
+                    <div class="link-container">
+                        <a href="redistribution.html" class="redistribution-link">Learn more</a>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <a href="join.html" class="btn-primary">Join Leaderboard</a>
+                </div>
+            </div>
+
+            <div class="doge-price-section">
+                <div class="price-info">
+                    <div class="current-price">
+                        <span class="price-value">DOGE Price: $0.3870</span>
+                        <span class="price-change positive">(+0.98%)</span>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div id="dogeChart"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="center-column">
+            <div class="table-container">
+                <table class="leaderboard">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>USER</th>
+                            <th>DOGE</th>
+                            <th>USD</th>
+                            <th>CONTRIBUTIONS</th>
+                            <th>LAST</th>
+                            <th>WALLET</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard">
+                        <!-- Will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="chat-section">
+                <h2>Chat</h2>
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- Chat messages will be inserted here -->
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" id="chatInput" class="chat-input" placeholder="Type your message...">
+                        <button id="sendButton" class="btn-primary">Send</button>
+                        <div class="login-message" style="display: none;">Please <a href="login.html">login</a> to participate in the chat</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Echelon</h3>
+                <p>Showcase your crypto power with the community.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Pages</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="leaderboard.html">Leaderboard</a></li>
+                    <li><a href="login.html">Login/Signup</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="faq.html">Leave a feedback</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://x.com/Echelon_Pro" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Echelon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Update navigation when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            import('./js/nav.js').then(nav => nav.updateNavigation());
+        });
+    </script>

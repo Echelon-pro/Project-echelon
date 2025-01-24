@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Echelon</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/node_modules/flag-icons/css/flag-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="/js/theme.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="/js/auth.js"></script>
+    <script type="module" src="/js/nav.js"></script>
+    <style>
+        .password-requirements {
+            margin-top: 8px;
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .password-requirements p {
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        .password-requirements ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .password-requirements li {
+            margin: 6px 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .password-requirements li.valid {
+            color: #4CAF50;
+        }
+
+        .password-requirements li.invalid {
+            color: #ff4444;
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="hamburger-menu mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-left">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+        <div class="nav-center">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Echelon</span>
+            </a>
+        </div>
+        <div class="nav-right">
+            <a href="login.html" class="login-btn">
+                <i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;Login
+            </a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="auth-container">
+            <h2>Create Account</h2>
+            <p class="auth-subtitle">Join the Echelon community</p>
+            
+            <form id="signupForm" class="auth-form" method="POST" onsubmit="return false;">
+                <div class="form-error" style="display: none;"></div>
+                
+                <div class="form-group">
+                    <label for="username">
+                        <i class="fas fa-user"></i>
+                        Username
+                    </label>
+                    <input type="text" id="username" name="username" required placeholder="Choose a username">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i>
+                        Email
+                    </label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i>
+                        Password
+                    </label>
+                    <input type="password" id="password" name="password" required placeholder="Create a password">
+                    <div class="password-requirements" style="display: none;">
+                        <p>Password must have:</p>
+                        <ul>
+                            <li id="length-check">✗ At least 8 characters</li>
+                            <li id="uppercase-check">✗ One uppercase letter</li>
+                            <li id="lowercase-check">✗ One lowercase letter</li>
+                            <li id="number-check">✗ One number</li>
+                            <li id="special-check">✗ One special character (!@#$%^&*)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">
+                        <i class="fas fa-lock"></i>
+                        Confirm Password
+                    </label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+                    <div class="password-match-error" style="display: none; color: #ff4444;">
+                        Passwords do not match
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary" disabled>
+                    <i class="fas fa-user-plus"></i>&nbsp;&nbsp;Create Account
+                </button>
+            </form>
+
+            <div class="auth-links">
+                <p>Already have an account? <a href="/login.html">Log in here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import auth from '/js/auth.js';
+
+        // Add to window for the resend link to work
+        window.resendVerification = async (email) => {
+            try {
+                const result = await auth.resendVerification(email);
+                alert('Verification email has been resent. Please check your inbox.');
+            } catch (error) {
+                console.error('Error resending verification:', error);
+                alert(error.message || 'Error resending verification email. Please try again.');
+            }
+        };
+
+        const signupForm = document.getElementById('signupForm');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const submitButton = signupForm.querySelector('button[type="submit"]');
+        const errorDiv = document.querySelector('.form-error');
+        const passwordRequirements = document.querySelector('.password-requirements');
+        const passwordMatchError = document.querySelector('.password-match-error');
+
+        function updatePasswordRequirements(password) {
+            const requirements = {
+                'length-check': password.length >= 8,
+                'uppercase-check': /[A-Z]/.test(password),
+                'lowercase-check': /[a-z]/.test(password),
+                'number-check': /[0-9]/.test(password),
+                'special-check': /[!@#$%^&*]/.test(password)
+            };
+
+            let allValid = true;
+            for (const [id, passes] of Object.entries(requirements)) {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.innerHTML = `${passes ? '✓' : '✗'} ${element.innerHTML.split(' ').slice(1).join(' ')}`;
+                    element.className = passes ? 'valid' : 'invalid';
+                    if (!passes) allValid = false;
+                }
+            }
+
+            return allValid;
+        }
+
+        function validateForm() {
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            
+            const passwordValid = updatePasswordRequirements(password);
+            const passwordsMatch = password === confirmPassword;
+
+            // Show/hide password match error
+            if (confirmPassword) {
+                passwordMatchError.style.display = passwordsMatch ? 'none' : 'block';
+            }
+
+            // Enable/disable submit button
+            submitButton.disabled = !passwordValid || !passwordsMatch || !password || !confirmPassword;
+
+            return passwordValid && passwordsMatch;
+        }
+
+        // Show requirements on password field focus
+        passwordInput.addEventListener('focus', () => {
+            passwordRequirements.style.display = 'block';
+            validateForm();
+        });
+
+        // Real-time validation
+        passwordInput.addEventListener('input', validateForm);
+        confirmPasswordInput.addEventListener('input', validateForm);
+
+        signupForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!validateForm()) {
+                return;
+            }
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = passwordInput.value;
+
+            try {
+                errorDiv.style.display = 'none';
+                submitButton.disabled = true;
+
+                const result = await auth.register(username, email, password);
+                
+                if (result.success) {
+                    // Hide the form
+                    signupForm.style.display = 'none';
+                    
+                    // Show success message in auth container
+                    const authContainer = document.querySelector('.auth-container');
+                    authContainer.innerHTML = `
+                        <div class="auth-box">
+                            <h2 class="auth-title">Registration Successful</h2>
+                            <div class="auth-content">
+                                <div class="success-message" style="color: #4CAF50; text-align: center; margin: 20px 0;">
+                                    <i class="fas fa-check-circle" style="font-size: 48px; margin-bottom: 16px;"></i>
+                                    <p style="font-size: 18px; margin: 16px 0;">${result.message}</p>
+                                </div>
+                                <p class="auth-instructions" style="text-align: center; color: var(--text-secondary);">
+                                    A verification link has been sent to <strong>${email}</strong>.<br>
+                                    Please check your email and click the link to complete your registration.
+                                </p>
+                                <div class="auth-help" style="text-align: center; margin-top: 24px;">
+                                    <p>
+                                        Didn't receive the email? Check your spam folder or 
+                                        <a href="#" class="text-link" onclick="window.resendVerification('${email}')">click here to resend</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                errorDiv.textContent = error.message;
+                errorDiv.style.display = 'block';
+                submitButton.disabled = false;
+            }
+        });
+
+        // Initialize validation
+        validateForm();
+    </script>
+</body>
+</html>

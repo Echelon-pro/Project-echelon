@@ -1,0 +1,119 @@
+/* Button Base Styles */
+.btn,
+.btn-primary,
+.btn-white,
+.auth-button,
+.nav-button,
+.login-btn,
+.signup-btn,
+.redeem-btn,
+.join-btn,
+.chat-btn,
+.send-btn,
+.subscribe-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--button-height);
+    padding: 0 var(--space-lg);
+    border-radius: var(--border-radius-xl);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    font-family: var(--font-family);
+    text-decoration: none;
+    transition: background-color var(--transition-fast);
+    cursor: pointer;
+    transform: none;
+}
+
+/* Primary Button Style */
+.btn-primary {
+    background-color: var(--text-primary);
+    color: var(--primary-color);
+    border: none;
+    padding: 0 2rem;
+    height: var(--button-height);
+    border-radius: var(--border-radius-xl);
+    font-weight: 600;
+    text-decoration: none;
+    width: auto;
+    margin: 0;
+}
+
+.btn-primary:hover {
+    background-color: #e0e0e0;
+    transform: none;
+}
+
+.btn-primary:active {
+    background-color: #d0d0d0;
+    transform: none;
+}
+
+/* White Button Style */
+.btn-white {
+    background-color: var(--text-primary);
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    font-size: var(--font-size-base);
+}
+
+.btn-white:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-white + .btn-white {
+    margin-left: 1rem;
+}
+
+/* Accent Button Style */
+.btn-accent {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.btn-accent:hover {
+    background-color: var(--accent-color-hover);
+    border-color: var(--accent-color-hover);
+}
+
+.btn-accent:active {
+    background-color: var(--accent-color-active);
+    border-color: var(--accent-color-active);
+}
+
+/* Form Button Modifiers */
+.signup-btn,
+.contact-form button,
+.newsletter-form button {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Login Button Specific */
+.login-btn {
+    width: auto;
+    min-width: 0;
+    padding: 0 var(--space-lg);
+}
+
+.login-btn i {
+    margin-right: var(--space-xs);
+}
+
+/* Auth Form Button Styles */
+.auth-form .btn-primary,
+.auth-form button[type="submit"] {
+    width: 100%;
+    margin-top: var(--space-lg);
+}
+
+/* Disabled Button State */
+button:disabled,
+.btn-primary:disabled,
+.btn-white:disabled,
+.auth-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}

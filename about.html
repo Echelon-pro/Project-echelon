@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Echelon</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/node_modules/flag-icons/css/flag-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="/js/theme.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="/js/auth.js"></script>
+    <script type="module" src="/js/nav.js"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="hamburger-menu mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-left">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+        <div class="nav-center">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Echelon</span>
+            </a>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="profile-link">Profile</a>
+        </div>
+    </nav>
+
+    <div class="about-container">
+        <h1>What is it?</h1>
+        <p>Echelon merges crypto with social networking, offering a one-of-a-kind platform to showcase your achievements and connect with a community of power players.</p>
+        <p>There are thousands of users from across the world — but only the top few are remembered. Are you going to let them outrank you, or are you ready to prove why you deserve the top spot?</p>
+
+        <section class="features">
+            <h2>Why Echelon is for the Elite</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Dominate the Leaderboard</h3>
+                    <p>Climb the ranks in real-time and show the world you're not just another player—you’re the boss. Your contributions and influence define your place at the top.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-users"></i>
+                    <h3>Network with Winners</h3>
+                    <p>Surround yourself with like-minded achievers. Build connections, share strategies, and grow alongside the most ambitious individuals in the game.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Unshakable Security</h3>
+                    <p>Powered by cutting-edge blockchain technology, Echelon ensures that your journey to power is transparent, secure, and unstoppable.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="team">
+            <h2>Team</h2>
+            <p>Currently, Echelon is a one-person project driven by passion and dedication to create something unique in the crypto space. But we're looking to grow!</p>
+            <p>If you're passionate about crypto, web development, or community building and want to be part of this journey, get in touch at info@project-echelon.com</p>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Echelon</h3>
+                <p>Showcase your crypto power with the community.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Pages</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="leaderboard.html">Leaderboard</a></li>
+                    <li><a href="login.html">Login/Signup</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="faq.html">Leave a feedback</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://x.com/Echelon_Pro" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Echelon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script type="module">
+        import auth from '/js/auth.js';
+        
+        // Update navigation when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            import('/js/nav.js').then(nav => {
+                nav.updateNavigation();
+            });
+        });
+    </script>
+</body>
+</html>

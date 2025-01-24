@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Echelon</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/pages.css">
+    <link rel="stylesheet" href="/node_modules/flag-icons/css/flag-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <script src="/js/theme.js"></script>
+    <script type="module" src="/js/auth.js"></script>
+    <script type="module" src="/js/nav.js"></script>
+    <style>
+        .faq-answer {
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-left">
+            <a href="home.html">Home</a>
+            <a href="leaderboard.html">Leaderboard</a>
+            <a href="about.html">About</a>
+            <a href="faq.html" class="active">FAQ</a>
+        </div>
+        <div class="nav-center">
+            <a href="home.html" class="logo">
+                <span class="logo-text">Echelon</span>
+            </a>
+        </div>
+        <div class="nav-right">
+            <!-- Will be populated by nav.js -->
+        </div>
+    </nav>
+
+    <div class="container faq-container">
+        <h1 class="page-title">Frequently Asked Questions</h1>
+        
+        <div class="faq-section">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>What is Echelon?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Echelon is where merit meets blockchain. We've built a powerful ecosystem where genuine achievers can verify their success through crypto technology. No shortcuts, no illusions – just pure value creation and recognition.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>How do I join Project Echelon?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Three simple steps to excellence: Sign up. Connect your wallet. Make your mark. Your ranking updates instantly – because real progress deserves real-time recognition. The path to extraordinary starts here.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>What cryptocurrencies are supported?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Currently mastering Dogecoin (DOGE). More options coming soon (SOL we are looking at you!). Stay ready.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>Can I change my username or profile info later?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Update your profile anytime, and increase your contribution when ready. Your journey, your pace, your decisions.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>Is there a cost to participate?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Smart investors understand value. We take a minimal fee to fuel innovation, while the majority of your contribution powers your ranking and community rewards. This isn't an expense – it's leverage for growth.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>What countries can participate?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Talent has no borders. If you're ready to create value, you're welcome here.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>Can I have multiple accounts?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>One account is all you need. Focus your energy on maximizing impact, not managing multiple accounts.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>Which wallets are supported?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We've curated the most robust wallet selection:</p>
+                    <p>• Coinbase Wallet<br>
+                    • Trust Wallet<br>
+                    • Binance Wallet<br>
+                    • Exodus Wallet<br>
+                    • Atomic Wallet<br>
+                    • Ledger Live<br>
+                    • MyDoge Wallet</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>Which network should I use?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Precision matters: Use only the DOGECOIN NETWORK. This isn't negotiable – wrong networks mean lost funds.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>What if my wallet isn't listed?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Three options:</p>
+                    <p>• Adopt a supported wallet<br>
+                    • Transfer DOGE to supported wallet<br>
+                    • Request wallet addition</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>How long do transactions take?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>• Confirmation may take 5-10 minutes<br>
+                    • Rank Update: Immediate post-confirmation<br>
+                    • Profile Refresh: Instant synchronization</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>Is my wallet information secure?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Security is foundational:</p>
+                    <p>• Zero private key storage - Complete autonomy<br>
+                    • Direct wallet transactions - No intermediaries<br>
+                    • Public data only - Maximum transparency<br>
+                    • Full credential control - Your keys, your crypto</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>How does redistribution work?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>When you join, you'll need to provide your DOGE address to participate in redistributions. We have different tiers – for example, when Tier 1 hits 100,000 DOGE, every registered user gets their fair share of the pool (minus platform fees).</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>What are the contribution tiers and rewards?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Tiers are designed to take you from a curious DOGE pup to an intergalactic Shiba. Each tier unlocks a community-wide redistribution event. Here's the breakdown:</p>
+                    <p>
+                        Tier 1: 69,000 DOGE - Young DOGE graduation 🎓<br>
+                        Tier 2: 100,000 DOGE - Rocket engines warming up 🚀<br>
+                        Tier 3: 420,000 DOGE - Blazing through the stratosphere ⭐<br>
+                        Tier 4: 1,000,000 DOGE - Moon mission completed 🌙<br>
+                        Tier 5: 4,200,000 DOGE - Mars colony established 🔴<br>
+                        Tier 6: 10,000,000 DOGE - Intergalactic DOGE civilization 🌌<br>
+                        Tier 7: 20,000,000 DOGE - DOGE Singularity: Beyond Space and Time 🌟
+                    </p>
+                    <p>When a tier target is reached, all enlisted users get their fair share of the pool. Higher tiers mean bigger treats for everyone! Keep an eye on the progress bar to see how far our space mission has gone.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>What happens if I disconnect my wallet?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Your ranking and contributions remain secure, but you'll need to reconnect your wallet to make new contributions or receive redistributions.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>Can I withdraw my contribution?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>No, contributions are final and become part of the Echelon ecosystem. They go toward your ranking and the community redistribution pool.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>What if I lose access to my account?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Make sure to save your login credentials and wallet information securely. If you lose access, contact our support team with verification details.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h2>How often does redistribution happen?</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Redistribution occurs automatically when tier targets are met. You can track progress toward the next redistribution on your dashboard and in the Leaderboard left section.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="section-divider">
+        
+    <div class="contact-section">
+        <h2 class="page-title">Still Have a Question?</h2>
+        <p>Send us your question or feedback, and we'll get back to you soon.</p>
+        <form id="contactForm" class="contact-form">
+            <div class="input-group">
+                <input type="email" id="contactEmail" name="email" placeholder="Your email address" required>
+            </div>
+            <div class="input-group">
+                <textarea id="contactMessage" name="message" rows="4" placeholder="Your question..." required></textarea>
+            </div>
+            <button type="submit" class="btn-white">
+                <i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Send Message
+            </button>
+            <div id="contactMessage" class="message-status"></div>
+        </form>
+    </div>
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Echelon</h3>
+                <p>Showcase your crypto power with the community.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Pages</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="leaderboard.html">Leaderboard</a></li>
+                    <li><a href="login.html">Login/Signup</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="faq.html">Leave a feedback</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://x.com/Echelon_Pro" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Echelon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        console.log('FAQ script starting...');
+        
+        document.querySelectorAll('.faq-item').forEach(item => {
+            console.log('Setting up FAQ item:', item);
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            
+            question.addEventListener('click', () => {
+                console.log('Question clicked');
+                
+                // Toggle current item
+                const isActive = item.classList.contains('active');
+                console.log('Current active state:', isActive);
+                
+                if (isActive) {
+                    item.classList.remove('active');
+                    answer.style.display = 'none';
+                } else {
+                    // Close all other items first
+                    document.querySelectorAll('.faq-item').forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq-answer').style.display = 'none';
+                        }
+                    });
+                    
+                    // Open this item
+                    item.classList.add('active');
+                    answer.style.display = 'block';
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('contactEmail').value;
+            const message = document.getElementById('contactMessage').value;
+            const messageDiv = document.getElementById('contactMessage');
+            
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, message })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    messageDiv.textContent = 'Message sent successfully!';
+                    messageDiv.className = 'message-status success';
+                    document.getElementById('contactEmail').value = '';
+                    document.getElementById('contactMessage').value = '';
+                } else {
+                    messageDiv.textContent = data.message || 'Failed to send message. Please try again.';
+                    messageDiv.className = 'message-status error';
+                }
+            } catch (error) {
+                messageDiv.textContent = 'Unable to send message. Please try again later.';
+                messageDiv.className = 'message-status error';
+            }
+        });
+    </script>
+
+    <script src="script.js"></script>
+    <script type="module">
+        import { updateNavigation } from '/js/nav.js';
+        
+        // Update navigation when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            updateNavigation();
+        });
+    </script>
+</body>
+</html>

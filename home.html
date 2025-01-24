@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Echelon</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/node_modules/flag-icons/css/flag-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="/js/theme.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="/js/auth.js"></script>
+    <script type="module" src="/js/nav.js"></script>
+    <script type="module" src="/js/newsletter.js"></script>
+    <script src="/js/counter.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-left">
+            <a href="home.html">Home</a>
+            <a href="leaderboard.html">Leaderboard</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+        <div class="nav-center">
+            <a href="home.html" class="logo">
+                <span class="logo-text">Echelon</span>
+            </a>
+        </div>
+        <div class="nav-right">
+            <!-- Will be populated by nav.js -->
+        </div>
+    </nav>
+
+    <div class="home-page">
+        <!-- Floating background elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        
+        <!-- Hero Section -->
+        <section class="home-section">
+            <div class="home-content">
+                <div class="promo-tag">
+                    NEW PROJECT!
+                </div>
+                <h1 class="home-title">Unleash Your Crypto</h1>
+                <p class="home-subtitle">Don’t just own crypto, own the spotlight! Show the world you’re a BOSS — On Echelon, the higher you rank the more you command respect.</p>
+                <a href="join.html" class="btn-primary">Join Now!</a>
+                
+                <div class="home-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="users">0</div>
+                        <div class="stat-label">REGISTERED USERS</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="countries">0</div>
+                        <div class="stat-label">COUNTRIES</div>
+                    </div>
+                </div>
+            </div>
+            <div class="home-image">
+                <img src="images/doge.png" alt="Credit Cards" style="max-width: 100%; height: auto;">
+            </div>
+        </section>
+
+        <hr class="section-separator">
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <h2 class="features-title">How It Works</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-card-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3 class="feature-card-title">Send DOGE</h3>
+                    <p class="feature-card-description">Connect your wallet and send some DOGE.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-card-title">Real-time Ranking</h3>
+                    <p class="feature-card-description">You get ranked on the leaderboard based on your contribution. The more you contribute, the higher you rank.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="feature-card-title">Community</h3>
+                    <p class="feature-card-description">Chat with like minded people from other countries for discussions and community.</p>
+                </div>
+            </div>
+            <div class="features-image">
+                <img src="images/leaderboard.png" alt="Leaderboard Preview">
+                <a href="leaderboard.html" class="preview-link">See Live Leaderboard</a>
+            </div>
+        </section>
+
+        <hr class="section-separator">
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <h2 class="newsletter-title">Stay Updated</h2>
+            <p class="newsletter-description">Many other features are coming soon. Subscribe so you don't miss out!</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" id="newsletterEmail" name="email" placeholder="Enter your email" required class="form-input">
+                <div class="g-recaptcha" data-sitekey="6LdfEL8qAAAAAGIEms0Cyw3Pic7KRpKLMaJ2eoHg" data-theme="dark"></div>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-paper-plane"></i>&nbsp;&nbsp;Notify Me
+                </button>
+                <div id="subscribeMessage" class="message-status"></div>
+            </form>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Echelon</h3>
+                <p>Showcase your crypto power with the community.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Pages</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="leaderboard.html">Leaderboard</a></li>
+                    <li><a href="login.html">Login/Signup</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="faq.html">Leave feedback</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://x.com/Echelon_Pro" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Echelon. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

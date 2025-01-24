@@ -1,0 +1,777 @@
+/* Profile styles for profile.html and my_profile.html
+ * This file contains styles for:
+ * - Profile header and avatar
+ * - Profile stats and metrics
+ * - Portfolio section
+ * - Activity feed
+ * - Settings section (my_profile.html only)
+ * - Profile edit forms (my_profile.html only)
+ */
+
+/* Base styles */
+body {
+    background-color: var(--background-color);
+    color: var(--text-primary);
+}
+
+.container {
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: calc(100vh - 60px);
+}
+
+.profile-card, .my-profile-container {
+    background: var(--background-secondary);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.my-profile-container {
+    max-width: unset;  /* Remove any previous max-width */
+}
+
+/* Profile Header */
+.profile-header {
+    padding: var(--space-xl) 0;
+    background: var(--background-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+/* Profile Image */
+.profile-image img,
+.profile-avatar,
+#profileImage {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+}
+
+.avatar-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.avatar-container:hover .avatar-overlay {
+    opacity: 1;
+}
+
+.avatar-overlay i {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.avatar-overlay span {
+    font-size: 14px;
+}
+
+.profile-details {
+    flex: 1;
+}
+
+.profile-name {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.profile-username {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+}
+
+.profile-bio {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+}
+
+/* Profile Stats */
+.profile-stats {
+    display: flex;
+    gap: var(--space-xl);
+    margin-top: var(--space-lg);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+/* Portfolio Section */
+.portfolio-section {
+    padding: var(--space-xl) 0;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.portfolio-card {
+    background: var(--background-secondary);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-lg);
+    border: 1px solid var(--border-color);
+}
+
+/* Activity Feed */
+.activity-feed {
+    margin-top: var(--space-xl);
+}
+
+.activity-item {
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-color);
+    color: white;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-time {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+/* Settings Section (my_profile.html only) */
+.settings-section {
+    padding: var(--space-xl) 0;
+}
+
+.settings-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Form layout */
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.form-fields-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .form-fields-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .profile-card {
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+
+    .profile-header {
+        padding: 1rem 0;
+    }
+
+    .avatar-container {
+        width: 100px;
+        height: 100px;
+        margin-right: 1rem;
+    }
+
+    .profile-info {
+        gap: 1rem;
+    }
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+    font-size: var(--font-size-base);
+}
+
+.form-group label i {
+    color: var(--text-primary);
+    font-size: var(--font-size-base);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: var(--space-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    background: var(--input-bg);
+    color: var(--text-primary);
+    font-size: var(--font-size-base);
+    font-family: var(--font-family);
+    transition: all 0.3s ease;
+    height: 40px;
+}
+
+.form-group textarea {
+    height: auto;
+    min-height: 40px;
+    resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.form-group input:disabled,
+.form-group textarea:disabled {
+    background: var(--contrast-bg);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.form-group input:disabled::placeholder,
+.form-group textarea:disabled::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+/* Specific field styles */
+#wallet {
+    font-family: var(--font-mono);
+}
+
+#bio {
+    resize: vertical;
+    min-height: 40px;
+    max-height: 80px;
+    height: 40px;
+    overflow-y: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-stats {
+        justify-content: center;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Profile Card Styles */
+.profile-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+}
+
+.profile-section {
+    margin-bottom: 2rem;
+}
+
+.profile-section h2 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.profile-card h2 {
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+}
+
+/* Remove section separator and icon */
+.profile-section h2 i {
+    display: none;
+}
+
+/* Remove container for bio and link */
+.bio, .link, .country-name, .member-since {
+    color: var(--text-primary);
+    margin: 0.5rem 0;
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+/* Update profile avatar */
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Border gradients */
+.profile-container::before,
+.profile-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--border-color) 20%,
+        var(--border-color) 80%,
+        transparent
+    );
+    transition: var(--transition-base);
+}
+
+.profile-container::before {
+    left: 0;
+}
+
+.profile-container::after {
+    right: 0;
+}
+
+.profile-container h2 {
+    color: var(--text-primary);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-xl);
+    padding: 0 0 var(--space-md) 0;
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+    text-align: left;
+}
+
+.profile-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.user-info {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.username {
+    font-size: var(--font-size-3xl);
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.position {
+    color: var(--dollar-color);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin: 0;
+}
+
+.doge-info {
+    text-align: left;
+}
+
+.amount,
+.doge-amount {
+    font-size: var(--font-size-3xl);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.usd-value {
+    color: var(--dollar-color);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+}
+
+.profile-details {
+    margin-bottom: var(--space-xl);
+}
+
+.detail-section {
+    margin-bottom: var(--space-md);
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.detail-section h3 {
+    color: var(--text-primary);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: var(--space-sm) var(--space-md);
+}
+
+.detail-section p, .detail-section a {
+    font-size: var(--font-size-base);
+    padding: var(--space-sm) var(--space-md);
+    font-weight: 400;
+    margin: 0;
+}
+
+.wallet-section {
+    display: flex;
+    align-items: left;
+    gap: 0.5rem;
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    font-weight: 400;
+    border-radius: 4px;
+    padding: 0;
+    margin-top: var(--space-sm);
+}
+
+.wallet-container {
+    display: flex;
+    align-items: left;
+    gap: var(--space-sm);
+    cursor: pointer;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition-base);
+    margin-top: 0;
+}
+
+.copy-button {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0.25rem;
+}
+
+.copy-button:hover {
+    color: var(--text-primary);
+}
+
+.copy-button i {
+    opacity: 0.7;
+}
+
+.copy-button:hover i {
+    opacity: 1;
+}
+
+.copy-feedback {
+    color: var(--text-primary);
+    margin-left: 0.5rem;
+}
+
+.wallet-address {
+    color: var(--text-secondary);
+    font-family: 'Roboto Mono', monospace;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+    margin-top: var(--space-lg);
+}
+
+.grid-container .detail-section {
+    margin: 0;
+}
+
+.country-name, .member-since, .bio, .link {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    font-weight: 400;
+    padding: var(--space-xs) 0;
+}
+
+.statistics-section {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border-color);
+    background: none;
+    box-shadow: none;
+}
+
+.statistics-section h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-xl);
+    color: var(--text-primary);
+    text-transform: none;
+    padding: 0 var(--space-md);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    padding: 0 var(--space-md);
+}
+
+.stat-box {
+    padding: 0;
+    text-align: center;
+    background: var(--contrast-bg);
+    box-shadow: none;
+    padding: var(--space-md);
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition-base);
+}
+
+.stat-value {
+    font-size: var(--font-size-3xl);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+.profile-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.profile-name-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.profile-values {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.profile-rank {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .profile-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .profile-name-container {
+        align-items: center;
+    }
+
+    .profile-values {
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: var(--space-sm);
+        padding-top: 4rem;
+    }
+
+    .profile-container {
+        padding: var(--space-md);
+        margin: var(--space-sm) 0;
+    }
+}
+
+/* Add Roboto Mono for wallet address */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+/* Profile link styling */
+.link a {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+
+.link a:hover {
+    opacity: 0.8;
+}
+
+/* Container styles */
+.container {
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: calc(100vh - 60px);
+}
+
+/* Profile card styles */
+.profile-card {
+    background: var(--background-secondary);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove redundant container styles */
+.main-container,
+.profile-container {
+    max-width: unset;
+    margin: unset;
+    padding: unset;
+}
+
+/* Profile rank styling */
+.profile-rank {
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+}
+
+.profile-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.profile-values {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.doge-amount-value {
+    font-size: var(--font-size-3xl);
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.usd-value {
+    color: var(--dollar-color);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    line-height: 1;
+}
