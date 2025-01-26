@@ -1,0 +1,20 @@
+node_modules/
+.DS_Store
+*.log
+uploads/*
+!uploads/.gitkeep
+.env
+.vscode/
+.vs/
+AppData/
+AppData/Local/
+**/AppData/**
+**/Cookies/**
+**/Dati applicazioni/**
+**/Documents/**
+**/Impostazioni locali/**
+**/Menu Avvio/**
+**/SendTo/**
+**/Risorse di stampa/**
+**/Risorse di rete/**
+*.vsix

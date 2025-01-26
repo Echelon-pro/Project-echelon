@@ -1,0 +1,155 @@
+/* Navigation */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--space-xl);
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--border-color);
+    height: var(--nav-height);
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    height: 100%;
+}
+
+.nav-left {
+    flex: 1;
+    justify-content: flex-start;
+    margin-right: 2rem;
+}
+
+.nav-right {
+    flex: 1;
+    justify-content: flex-end;
+    margin-left: 2rem;
+}
+
+.nav-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+/* Logo */
+.logo {
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.logo-text {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: var(--space-md);
+}
+
+.nav-links li {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.75rem 1.25rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+    font-size: 1.25rem;
+    display: block;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+}
+
+.nav-link.active {
+    color: var(--accent-color);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    padding: var(--space-sm);
+    cursor: pointer;
+    z-index: calc(var(--z-dropdown) + 1);
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-primary);
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* X animation */
+.menu-active .mobile-menu-btn span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-active .mobile-menu-btn span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-active .mobile-menu-btn span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-left {
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        background-color: var(--nav-bg);
+        padding: var(--space-lg);
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .menu-active .nav-left {
+        transform: translateY(0);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-link {
+        width: 100%;
+        text-align: center;
+        padding: var(--space-md);
+    }
+
+    .nav-right {
+        gap: var(--space-sm);
+    }
+}
