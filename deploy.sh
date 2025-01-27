@@ -19,7 +19,7 @@ mkdir -p "$DEPLOY_DIR"/{css,js,images,server/{routes,controllers,middleware,mode
 echo "📦 Copying frontend files..."
 cp -r css/*.css "$DEPLOY_DIR/css/"
 cp -r js/*.js "$DEPLOY_DIR/js/"
-cp -r images/* "$DEPLOY_DIR/images/"
+cp -r images/*.{png,jpg,jpeg,svg,jfif} "$DEPLOY_DIR/images/"  # Updated to include all image types
 
 # Copy server files with full directory structure
 echo "📦 Copying server files..."
@@ -55,6 +55,7 @@ cp \
     home.html \
     faq.html \
     leaderboard.html \
+    leaderboard.png \
     "$DEPLOY_DIR/"
 
 # Ensure key has correct permissions
@@ -74,6 +75,8 @@ ssh -i "$KEY_PATH" $SERVER "cd ~/echelon && \
     npm install --production && \
     echo 'Installing additional dependencies...' && \
     npm install bcryptjs jsonwebtoken nodemailer multer mongoose cors express socket.io dotenv && \
+    echo 'Updating environment variables...' && \
+    echo 'WEBSITE_URL=https://project-echelon.com' >> .env && \
     echo 'Stopping existing PM2 processes...' && \
     pm2 stop all || true && \
     pm2 delete all || true && \
